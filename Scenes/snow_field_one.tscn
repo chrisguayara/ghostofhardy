@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqjherp2iqdyl"]
+
+[ext_resource type="PackedScene" uid="uid://dfrdaupmdi1sr" path="res://Chars/Player/player_hardy.tscn" id="1_4g7mp"]
+[ext_resource type="Texture2D" uid="uid://b4jfof450fex3" path="res://Assets/bg_snowScene_1.png" id="1_sjk1a"]
+[ext_resource type="PackedScene" uid="uid://cyckeh30rl4y0" path="res://Chars/edith.tscn" id="3_jdm8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjk1a"]
+size = Vector2(277, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdm8f"]
+size = Vector2(43.75, 144.5)
+
+[node name="SnowField_One" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(128, 120)
+texture = ExtResource("1_sjk1a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bg"]
+position = Vector2(-128, -120)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(128.5, 42.5)
+shape = SubResource("RectangleShape2D_sjk1a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(129, 293)
+shape = SubResource("RectangleShape2D_sjk1a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(-21.875, 167.25)
+shape = SubResource("RectangleShape2D_jdm8f")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="bg/StaticBody2D"]
+position = Vector2(278, 167)
+shape = SubResource("RectangleShape2D_jdm8f")
+
+[node name="Edith" parent="." instance=ExtResource("3_jdm8f")]
+position = Vector2(77, 111)
+collision_layer = 3
+
+[node name="Hardy" parent="." instance=ExtResource("1_4g7mp")]
+position = Vector2(95, 111)
+collision_mask = 2
