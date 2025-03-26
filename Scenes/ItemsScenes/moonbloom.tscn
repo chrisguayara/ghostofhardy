@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5csuckq1tuh7"]
+
+[ext_resource type="Texture2D" uid="uid://c8v6507e6vw0a" path="res://Assets/Items/moonblooms.png" id="1_ydfkj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pp2kt"]
+radius = 5.52268
+
+[node name="moonbloom" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ydfkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("CircleShape2D_pp2kt")
