@@ -9,6 +9,8 @@ func _ready():
 func _physics_process(delta):
 	var direction = main_character.global_position - global_position
 	
+	
+	
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			animation_player.play("idle_right")

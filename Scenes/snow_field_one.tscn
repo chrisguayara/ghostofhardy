@@ -1,10 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqjherp2iqdyl"]
+[gd_scene load_steps=12 format=3 uid="uid://cqjherp2iqdyl"]
 
 [ext_resource type="PackedScene" uid="uid://dfrdaupmdi1sr" path="res://Chars/Player/player_hardy.tscn" id="1_4g7mp"]
 [ext_resource type="Texture2D" uid="uid://db346c0hvkkxd" path="res://Assets/BackGrounds/bg_purpSky.png" id="1_rfkfx"]
 [ext_resource type="Texture2D" uid="uid://b4jfof450fex3" path="res://Assets/bg_snowScene_1.png" id="1_sjk1a"]
 [ext_resource type="PackedScene" uid="uid://cyckeh30rl4y0" path="res://Chars/edith.tscn" id="3_jdm8f"]
 [ext_resource type="PackedScene" uid="uid://5csuckq1tuh7" path="res://Scenes/ItemsScenes/moonbloom.tscn" id="5_kho6u"]
+[ext_resource type="Texture2D" uid="uid://22nbeiyvpawn" path="res://Assets/UI/main.png" id="6_tonve"]
+
+[sub_resource type="Animation" id="Animation_tonve"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_kho6u"]
 resource_name = "default"
@@ -22,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_tonve"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bg:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3l5dy"]
@@ -101,3 +102,24 @@ collision_mask = 2
 position = Vector2(77, 111)
 collision_layer = 3
 main_character = NodePath("../Hardy")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/TopBar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_tonve")
+stretch_mode = 2
