@@ -1,21 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1467t3ey1kyw"]
+[gd_scene load_steps=7 format=3 uid="uid://c1467t3ey1kyw"]
 
-[ext_resource type="PackedScene" uid="uid://dfrdaupmdi1sr" path="res://Chars/Player/player_hardy.tscn" id="1_2ha63"]
 [ext_resource type="Script" uid="uid://8sa5ct4j6ypg" path="res://Scripts/main_game.gd" id="1_dhx62"]
 [ext_resource type="Texture2D" uid="uid://22nbeiyvpawn" path="res://Assets/UI/main.png" id="2_dhx62"]
-[ext_resource type="PackedScene" uid="uid://cyckeh30rl4y0" path="res://Chars/edith.tscn" id="2_vb4kg"]
 [ext_resource type="Script" uid="uid://iihddx3nh8fn" path="res://Scenes/gameScenes/level_manager.gd" id="3_ajtc5"]
+[ext_resource type="Script" uid="uid://m5k6x1gj8l30" path="res://Scripts/ui_manager.gd" id="4_h3831"]
+[ext_resource type="Script" uid="uid://cst6hjffiq5eo" path="res://Scripts/music_manager.gd" id="7_x7p4a"]
+[ext_resource type="AudioStream" uid="uid://c28hrbx5gcrs7" path="res://Sound/Music/openingScene.wav" id="8_7d15t"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_dhx62")
-
-[node name="Hardy" parent="." instance=ExtResource("1_2ha63")]
-position = Vector2(117, 107)
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("3_ajtc5")
 
 [node name="UIManager" type="Node2D" parent="."]
+script = ExtResource("4_h3831")
 
 [node name="UI" type="CanvasLayer" parent="UIManager"]
 
@@ -40,6 +39,11 @@ stretch_mode = 2
 
 [node name="InvetoryManager" type="Node2D" parent="."]
 
-[node name="Edith" parent="." node_paths=PackedStringArray("main_character") instance=ExtResource("2_vb4kg")]
-position = Vector2(86, 107)
-main_character = NodePath("../Hardy")
+[node name="MusicManager" type="Node2D" parent="."]
+script = ExtResource("7_x7p4a")
+
+[node name="introtheme" type="AudioStreamPlayer2D" parent="MusicManager"]
+stream = ExtResource("8_7d15t")
+volume_db = -10.06
+autoplay = true
+playback_type = 1
