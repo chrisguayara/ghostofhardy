@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1467t3ey1kyw"]
+[gd_scene load_steps=8 format=3 uid="uid://c1467t3ey1kyw"]
 
 [ext_resource type="Script" uid="uid://8sa5ct4j6ypg" path="res://Scripts/main_game.gd" id="1_dhx62"]
 [ext_resource type="Texture2D" uid="uid://22nbeiyvpawn" path="res://Assets/UI/main.png" id="2_dhx62"]
 [ext_resource type="Script" uid="uid://iihddx3nh8fn" path="res://Scenes/gameScenes/level_manager.gd" id="3_ajtc5"]
 [ext_resource type="Script" uid="uid://m5k6x1gj8l30" path="res://Scripts/ui_manager.gd" id="4_h3831"]
+[ext_resource type="PackedScene" uid="uid://88ty0ph4m52u" path="res://Assets/UI/speech.tscn" id="5_x7p4a"]
 [ext_resource type="Script" uid="uid://cst6hjffiq5eo" path="res://Scripts/music_manager.gd" id="7_x7p4a"]
 [ext_resource type="AudioStream" uid="uid://c28hrbx5gcrs7" path="res://Sound/Music/openingScene.wav" id="8_7d15t"]
 
@@ -37,6 +38,9 @@ grow_vertical = 2
 texture = ExtResource("2_dhx62")
 stretch_mode = 2
 
+[node name="Speech_Manager" parent="UIManager/UI/TopBar" instance=ExtResource("5_x7p4a")]
+layout_mode = 1
+
 [node name="InvetoryManager" type="Node2D" parent="."]
 
 [node name="MusicManager" type="Node2D" parent="."]
@@ -47,3 +51,5 @@ stream = ExtResource("8_7d15t")
 volume_db = -10.06
 autoplay = true
 playback_type = 1
+
+[editable path="UIManager/UI/TopBar/Speech_Manager"]

@@ -1,24 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://88ty0ph4m52u"]
+[gd_scene load_steps=6 format=3 uid="uid://88ty0ph4m52u"]
 
+[ext_resource type="Script" uid="uid://g56indqxbg36" path="res://Assets/UI/speech_manager.gd" id="1_66b3g"]
 [ext_resource type="FontFile" uid="uid://cf1ina4pmbq1p" path="res://Assets/UI/ssega-os.ttf" id="1_gpfgk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66b3g"]
 bg_color = Color(0, 0, 0, 1)
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hm6ad"]
-
 [sub_resource type="Theme" id="Theme_pk7fr"]
 default_font = ExtResource("1_gpfgk")
 default_font_size = 10
 
-[node name="Speech" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpfgk"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.949389, 0.949389, 0.949389, 1)
+
+[node name="Speech_Manager" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_66b3g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -36,30 +44,27 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_66b3g")
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 4
-
-[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_hm6ad")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-theme = SubResource("Theme_pk7fr")
-text = "Text"
-
 [node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme = SubResource("Theme_pk7fr")
 text = "Text"
 
-[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/HBoxContainer"]
-texture_filter = 1
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-theme = SubResource("Theme_pk7fr")
-text = "Text"
+theme_override_constants/margin_left = 226
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gpfgk")
