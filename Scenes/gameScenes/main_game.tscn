@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1467t3ey1kyw"]
+[gd_scene load_steps=9 format=3 uid="uid://c1467t3ey1kyw"]
 
 [ext_resource type="Script" uid="uid://8sa5ct4j6ypg" path="res://Scripts/main_game.gd" id="1_dhx62"]
 [ext_resource type="Texture2D" uid="uid://22nbeiyvpawn" path="res://Assets/UI/main.png" id="2_dhx62"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://88ty0ph4m52u" path="res://Assets/UI/speech.tscn" id="5_x7p4a"]
 [ext_resource type="Script" uid="uid://cst6hjffiq5eo" path="res://Scripts/music_manager.gd" id="7_x7p4a"]
 [ext_resource type="AudioStream" uid="uid://c28hrbx5gcrs7" path="res://Sound/Music/openingScene.wav" id="8_7d15t"]
+[ext_resource type="Script" uid="uid://bmikn0n88jnng" path="res://Scenes/gameScenes/sound_fx_manager.gd" id="8_y6jgg"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_dhx62")
@@ -48,8 +49,13 @@ script = ExtResource("7_x7p4a")
 
 [node name="introtheme" type="AudioStreamPlayer2D" parent="MusicManager"]
 stream = ExtResource("8_7d15t")
-volume_db = -10.06
+volume_db = -5.108
 autoplay = true
 playback_type = 1
+
+[node name="SoundFXManager" type="Node2D" parent="."]
+script = ExtResource("8_y6jgg")
+
+[connection signal="has_Started" from="LevelManager" to="." method="_on_level_manager_has_started"]
 
 [editable path="UIManager/UI/TopBar/Speech_Manager"]

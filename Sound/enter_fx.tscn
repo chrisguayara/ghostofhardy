@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvkeec76qbrlu"]
+
+[ext_resource type="AudioStream" uid="uid://dqsmkoyu2x58c" path="res://Sound/FX/enter.wav" id="1_ewvpl"]
+
+[node name="enterFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ewvpl")
+volume_db = -0.991
+autoplay = true

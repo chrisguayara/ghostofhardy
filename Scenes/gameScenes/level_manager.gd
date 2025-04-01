@@ -4,6 +4,9 @@ var curr_level = null
 @onready var ui_manager = $"../UIManager"
 @onready var music_manager = $"../MusicManager"
 var level_name :String = ""
+@onready var sound_fx_manager = $"../SoundFXManager"
+
+signal has_Started
 
 var levels : Dictionary[String, Dictionary] = {
 	"title" : {
@@ -27,7 +30,7 @@ func _physics_process(_delta):
 		print("entered")
 		load_level("limbo")
 		music_manager.unload_song()
-		
+		sound_fx_manager.on_enter()
 
 func load_level(level: String):
 	print("Loading level: ", level)
@@ -44,6 +47,7 @@ func load_level(level: String):
 		curr_level = new_level
 		music_manager.load_song(level_data["music"])
 		
-		
+		if level_name == "limbo":
+			emit_signal("has_Started")
 	
 	
