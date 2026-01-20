@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bta4cnclqb17n"]
+
+[ext_resource type="PackedScene" uid="uid://ca2ghaf1ytans" path="res://Scenes/gameScenes/intro scenes/limbo_1.tscn" id="1_s1m53"]
+
+[node name="IntroScenes" type="Node2D"]
+
+[node name="Limbo1" parent="." instance=ExtResource("1_s1m53")]
