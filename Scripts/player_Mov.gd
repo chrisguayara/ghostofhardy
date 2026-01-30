@@ -26,6 +26,7 @@ func _physics_process(_delta):
 			last_direction = "up"
 		if input_direction != Vector2.ZERO:
 			animation_player.play("move_" + last_direction) 
+			
 		else:
 			animation_player.play("idle_" + last_direction)
 		move_and_slide()
